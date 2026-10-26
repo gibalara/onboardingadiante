@@ -737,6 +737,13 @@ main > section.on{display:block}
 .op-contact{margin-top:14px;font-size:14px;color:var(--text-2)}
 .op-contact b{color:var(--text)}
 .jr .sla b:empty,.jr .sla b:blank{display:none}
+
+/* menu lateral fixo (desktop) */
+@media (min-width:981px){
+  .pb-side{position:fixed;top:68px;bottom:0;left:max(0px,calc((100vw - 1440px)/2));width:250px;height:calc(100vh - 68px)!important;max-height:none;overflow-y:auto;z-index:15;background:var(--bg)}
+  .pb-shell > main{grid-column:2}
+  footer{padding-left:250px}
+}
 </style>
 </head>
 <body class="notes-only">
