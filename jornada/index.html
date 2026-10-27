@@ -718,7 +718,7 @@ body.notes-open .top .notes-fab{display:flex;opacity:.55;pointer-events:none}
 .sim-out{position:relative;overflow:hidden}
 .sim-out::after{content:"SIMULAÇÃO ILUSTRATIVA · NÃO É PROPOSTA COMERCIAL";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-18deg);white-space:nowrap;font-size:15px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.13);pointer-events:none;z-index:0}
 .sim-out > *{position:relative;z-index:1}
-@media (max-width:760px){.sim-out::after{font-size:11px}}
+@media (max-width:760px){.sim-out{position:sticky}.sim-out::after{font-size:11px}}
 </style>
 </head>
 <body class="notes-only">

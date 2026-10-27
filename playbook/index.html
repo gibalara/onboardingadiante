@@ -731,7 +731,10 @@ main > section.on{display:block}
 .pb-side a .sub-tg{margin-left:auto;background:none;border:0;color:var(--muted);font-size:12px;cursor:pointer;padding:0 2px;line-height:1.35}
 .pb-side a .sub-tg:hover{color:var(--cyan)}
 .pb-side .sub-l[hidden]{display:none}
-.opblk{margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.opblk{margin-top:64px;padding-top:36px;border-top:2px solid rgba(31,176,230,.45);position:relative}
+.opblk::before{content:"";position:absolute;left:0;top:-2px;width:72px;height:2px;background:var(--cyan)}
+.opblk#op-ferramentas::before{display:none}
+.opblk .sub{font-size:22px}
 .opblk#op-ferramentas{margin-top:0;padding-top:0;border-top:0}
 .op-intro{color:var(--text-2);margin:-4px 0 14px;max-width:760px}
 .op-contact{margin-top:14px;font-size:14px;color:var(--text-2)}
@@ -744,6 +747,12 @@ main > section.on{display:block}
   .pb-shell > main{grid-column:2}
   footer{padding-left:250px}
 }
+
+/* abertura do playbook: menos espaço e alinhamento com o índice */
+#home.hero{padding:48px 0 56px}
+#home.hero .wrap{align-items:start}
+#home.hero .kicker{margin-bottom:14px}
+@media (max-width:760px){#home.hero{padding:32px 0 40px}}
 </style>
 </head>
 <body class="notes-only">
@@ -1138,12 +1147,7 @@ main > section.on{display:block}
       var tg=document.createElement('button');tg.type='button';tg.className='sub-tg';tg.setAttribute('aria-controls','subOp');tg.setAttribute('aria-expanded','false');tg.setAttribute('aria-label','Mostrar blocos do dia a dia');tg.textContent='▸';
       tg.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var o=sl.hidden;sl.hidden=!o;tg.setAttribute('aria-expanded',o?'true':'false');tg.textContent=o?'▾':'▸';tg.setAttribute('aria-label',o?'Ocultar blocos do dia a dia':'Mostrar blocos do dia a dia')});
       a.appendChild(tg);side.appendChild(sl)}});
-  /* pager */
-  order.forEach(function(id,i){var sec=$(id);if(!sec)return;var w=sec.querySelector('.wrap');var pg=document.createElement('div');pg.className='pager';
-    if(i>0){var p=document.createElement('a');p.href='#'+order[i-1];p.innerHTML='<small>Anterior</small><b></b>';p.querySelector('b').textContent='← '+NAMES[order[i-1]];pg.appendChild(p)}
-    if(i<order.length-1){var nx=document.createElement('a');nx.className='nx';nx.href='#'+order[i+1];nx.innerHTML='<small>Próximo</small><b></b>';nx.querySelector('b').textContent=NAMES[order[i+1]]+' →';pg.appendChild(nx)}
-    w.appendChild(pg)});
-  function pageOf(el){var s=el&&el.closest?el.closest('main > section'):null;if(!s)return 'home';if(s.hasAttribute('data-home'))return 'home';return s.id||'home'}
+    function pageOf(el){var s=el&&el.closest?el.closest('main > section'):null;if(!s)return 'home';if(s.hasAttribute('data-home'))return 'home';return s.id||'home'}
   var cur=null;
   function show(id,target,noScroll){
     if(order.indexOf(id)<0)id='home';
